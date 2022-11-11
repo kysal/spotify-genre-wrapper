@@ -8,18 +8,21 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AddComponent } from './pages/add/add.component';
 import { LibraryService } from './library.service';
+import { RandomComponent } from './pages/random/random.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumLinkComponent,
     HomeComponent,
-    AddComponent
+    AddComponent,
+    RandomComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
+      {path: "random", component: RandomComponent},
       {path: "add", component: AddComponent},
       {path: "", component: HomeComponent}
     ])
