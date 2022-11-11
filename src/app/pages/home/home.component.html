@@ -1,0 +1,5 @@
+<span *ngFor="let album of library" style="margin: 20px;">
+    <app-album-link [album]="album"></app-album-link>
+</span>
+<br>
+<button routerLink="/add">Add</button>

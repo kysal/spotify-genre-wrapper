@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { Album } from 'src/album';
 
 @Component({
   selector: 'app-album-link',
@@ -9,10 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AlbumLinkComponent implements OnInit {
 
-  albumLink: string = "spotify:album:0wBiN0fKhy0ywx732SpgUs?si=1nxa2altRs6Ta5SI-hUduA&nd=1"
-  name: string = "The Campfire Headphase"
-  artist: string = "Boards of Canada"
-
+  @Input() album: Album = {name:"",url:"",artist:"",image:""};
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -30,7 +28,7 @@ export class AlbumLinkComponent implements OnInit {
   // }
 
   sanitize() {
-    return this.sanitizer.bypassSecurityTrustUrl(this.albumLink)
+    return this.sanitizer.bypassSecurityTrustUrl(this.album.url)
   }
 
 }
